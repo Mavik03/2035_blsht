@@ -1,0 +1,18 @@
+# Blender 4.0.0 MTL File: 'dronePreview.blend'
+# www.blender.org
+
+newmtl drone
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd model zala 421/textures/Zala_16EV2_Base_color_1001.png
+map_Pm model zala 421/textures/Zala_16EV2_Metallic_1001.png
+map_Pr model zala 421/textures/Zala_16EV2_Roughness_1001.png
+map_Bump -bm 1.000000 model zala 421/textures/Zala_16EV2_Normal_OpenGL_1001.png

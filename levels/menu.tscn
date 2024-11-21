@@ -1,0 +1,177 @@
+[gd_scene load_steps=9 format=3 uid="uid://chyxtmgtshlax"]
+
+[ext_resource type="Script" path="res://scripts/quit.gd" id="2_0epnh"]
+[ext_resource type="Texture2D" uid="uid://cioa4gvc0d4ps" path="res://images/ruan-ming-ren-sao-scene-mini.jpg" id="2_sri8n"]
+[ext_resource type="Script" path="res://scripts/load_image.gd" id="3_ciffl"]
+[ext_resource type="Script" path="res://levels/settings_control.gd" id="4_jhcja"]
+
+[sub_resource type="SystemFont" id="SystemFont_xfyj8"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="SystemFont" id="SystemFont_chu6b"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="SystemFont" id="SystemFont_x2l2j"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="SystemFont" id="SystemFont_6ry3s"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 325)
+zoom = Vector2(1.1, 1.1)
+
+[node name="Ruan-ming-ren-sao-scene-mini" type="Sprite2D" parent="."]
+position = Vector2(581, 358)
+scale = Vector2(0.546875, 0.611111)
+texture = ExtResource("2_sri8n")
+
+[node name="Play" type="Button" parent="."]
+offset_left = -32.0
+offset_top = 8.0
+offset_right = 767.0
+offset_bottom = 468.0
+scale = Vector2(0.451906, 0.451906)
+theme_override_colors/font_hover_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_xfyj8")
+theme_override_font_sizes/font_size = 250
+text = "Fly"
+flat = true
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 72.0
+offset_top = 240.0
+offset_right = 336.0
+offset_bottom = 392.0
+scale = Vector2(0.451906, 0.451906)
+theme_override_colors/font_hover_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_chu6b")
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+flat = true
+alignment = 0
+icon_alignment = 1
+script = ExtResource("2_0epnh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ciffl")
+
+[node name="LoadImage" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 176.0
+offset_right = 838.0
+offset_bottom = 255.0
+theme_override_colors/font_hover_color = Color(0.212305, 0.212305, 0.212305, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_x2l2j")
+theme_override_font_sizes/font_size = 50
+text = "Load height map"
+flat = true
+alignment = 0
+
+[node name="FileDialog" type="FileDialog" parent="Control"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(887, 515)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="SettingsControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 72.0
+offset_top = 408.0
+offset_right = 112.0
+offset_bottom = 448.0
+script = ExtResource("4_jhcja")
+
+[node name="background" type="Polygon2D" parent="SettingsControl"]
+position = Vector2(21.9922, -182.157)
+scale = Vector2(3.31707, 0.663594)
+color = Color(0.152941, 0.152941, 0.152941, 0.67451)
+offset = Vector2(-10.63, 0)
+polygon = PackedVector2Array(4.63, 600, 127, 600, 127, 383, 4, 383)
+
+[node name="Settings" type="Label" parent="SettingsControl"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 400.0
+offset_bottom = 152.0
+theme_override_fonts/font = SubResource("SystemFont_6ry3s")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="valueAvg" type="Label" parent="SettingsControl"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 176.0
+offset_right = 464.0
+offset_bottom = 210.0
+theme_override_fonts/font = SubResource("SystemFont_6ry3s")
+theme_override_font_sizes/font_size = 24
+text = "15
+"
+
+[node name="valueMax" type="Label" parent="SettingsControl"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 136.0
+offset_right = 464.0
+offset_bottom = 170.0
+theme_override_fonts/font = SubResource("SystemFont_6ry3s")
+theme_override_font_sizes/font_size = 24
+text = "30"
+
+[node name="Max_speed" type="Label" parent="SettingsControl"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 144.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_6ry3s")
+theme_override_font_sizes/font_size = 24
+text = "Max speed
+Avg speed"
+
+[node name="AvgSpeed" type="HSlider" parent="SettingsControl"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 176.0
+offset_right = 360.0
+offset_bottom = 210.0
+min_value = 5.0
+max_value = 30.0
+value = 15.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="MaxSpeed" type="HSlider" parent="SettingsControl"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 136.0
+offset_right = 360.0
+offset_bottom = 170.0
+min_value = 10.0
+max_value = 60.0
+value = 30.0
+tick_count = 10
+ticks_on_borders = true
+
+[connection signal="pressed" from="Play" to="Quit" method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
+[connection signal="pressed" from="Control/LoadImage" to="Control" method="_on_load_image_pressed"]
+[connection signal="file_selected" from="Control/FileDialog" to="Control" method="_on_file_dialog_file_selected"]
+[connection signal="value_changed" from="SettingsControl/AvgSpeed" to="SettingsControl" method="_on_avg_speed_value_changed"]
+[connection signal="value_changed" from="SettingsControl/MaxSpeed" to="SettingsControl" method="_on_max_speed_value_changed"]
